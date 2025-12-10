@@ -177,6 +177,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Set Area Clear"/>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="areaClearCheckBoxStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="sendBtn">
       <Properties>

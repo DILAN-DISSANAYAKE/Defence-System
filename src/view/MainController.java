@@ -68,6 +68,11 @@ public class MainController extends ControllerRoom {
 
         areaClearCheckBox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         areaClearCheckBox.setText("Set Area Clear");
+        areaClearCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                areaClearCheckBoxStateChanged(evt);
+            }
+        });
 
         sendBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         sendBtn.setText("Send");
@@ -146,6 +151,14 @@ public class MainController extends ControllerRoom {
             sendMessage("Controller Room : "+txtField.getText());
         }
     }//GEN-LAST:event_sendBtnActionPerformed
+
+    private void areaClearCheckBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_areaClearCheckBoxStateChanged
+        if(areaClearCheckBox.isSelected()){
+            setAreaClear(areaClearCheckBox.isSelected(),"Area is Clear");
+        }else{
+            setAreaClear(areaClearCheckBox.isSelected(),"Area is Not Clear");
+        }
+    }//GEN-LAST:event_areaClearCheckBoxStateChanged
 
     
     

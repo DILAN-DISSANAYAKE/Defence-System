@@ -43,7 +43,11 @@ public class ControllerRoom extends javax.swing.JFrame{
                 observable.displayMessage(message);
                 return;
             }
-            
+        }
+    }
+    public void setAreaClear(boolean isClear,String state){
+        for(Observable observable:observables){
+            observable.setAreaClear(isClear,state);
         }
     }
 }

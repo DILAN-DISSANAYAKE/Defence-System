@@ -2,6 +2,7 @@
 package view;
 
 import interfaces.Observable;
+import java.awt.Color;
 
 
 public class Tank extends javax.swing.JFrame implements Observable{
@@ -13,6 +14,16 @@ public class Tank extends javax.swing.JFrame implements Observable{
     @Override
     public void displayMessage(String message) {
         msgArea.setText(msgArea.getText()+"\n"+message);
+    }
+    @Override
+    public void setAreaClear(boolean isClear,String state) {
+        if (isClear) {
+            areaClearLabel.setText(state);
+            areaClearLabel.setForeground(Color.GREEN);
+        }else{
+            areaClearLabel.setText(state);
+            areaClearLabel.setForeground(Color.RED);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -173,6 +184,8 @@ public class Tank extends javax.swing.JFrame implements Observable{
     private javax.swing.JSlider slider;
     private javax.swing.JTextField txtSlider;
     // End of variables declaration//GEN-END:variables
+
+    
 
     
 }
