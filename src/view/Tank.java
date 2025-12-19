@@ -41,6 +41,7 @@ public class Tank extends javax.swing.JFrame implements Observable{
         areaClearLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         msgArea = new javax.swing.JTextArea();
+        position = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,11 @@ public class Tank extends javax.swing.JFrame implements Observable{
         slider.setPaintTicks(true);
         slider.setSnapToTicks(true);
         slider.setValue(0);
+        slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sliderStateChanged(evt);
+            }
+        });
 
         txtSlider.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtSlider.setText("0");
@@ -95,6 +101,14 @@ public class Tank extends javax.swing.JFrame implements Observable{
         msgArea.setRows(5);
         jScrollPane1.setViewportView(msgArea);
 
+        position.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        position.setText("Position");
+        position.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                positionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,17 +126,19 @@ public class Tank extends javax.swing.JFrame implements Observable{
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(sendMsgField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(sendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(80, 80, 80)
+                        .addComponent(sendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(position, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(66, 66, 66)
                 .addComponent(slider, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -142,7 +158,9 @@ public class Tank extends javax.swing.JFrame implements Observable{
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(position)))
                         .addGap(40, 40, 40)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)
@@ -168,6 +186,14 @@ public class Tank extends javax.swing.JFrame implements Observable{
         // TODO add your handling code here:
     }//GEN-LAST:event_sendMsgFieldActionPerformed
 
+    private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
+        txtSlider.setText(String.valueOf(slider.getValue()));
+    }//GEN-LAST:event_sliderStateChanged
+
+    private void positionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_positionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_positionActionPerformed
+
 
     
 
@@ -179,6 +205,7 @@ public class Tank extends javax.swing.JFrame implements Observable{
     private javax.swing.JButton btn4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea msgArea;
+    private javax.swing.JCheckBox position;
     private javax.swing.JButton sendBtn;
     private javax.swing.JTextField sendMsgField;
     private javax.swing.JSlider slider;
